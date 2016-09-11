@@ -1,0 +1,20 @@
+<h2>Create a new Employee!</h2>
+
+<div>
+<%= form_tag("/employees", method: "post") do %>
+
+  <%= label_tag(:first_name) %>
+  <%= text_field_tag(:first_name) %>
+
+  <%= label_tag(:last_name) %>
+  <%= text_field_tag(:last_name) %>
+
+  <%= label_tag(:email) %>
+  <%= text_field_tag(:email) %>
+
+  <%= label_tag(:birth_date) %>
+  <%= date_field_tag(:birth_date) %>
+
+  <%= submit_tag("Create") %>
+<% end %>
+</div>

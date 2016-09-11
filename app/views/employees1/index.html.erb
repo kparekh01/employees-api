@@ -1,0 +1,28 @@
+<h1>test!</h1>
+
+<div ng-app="app">
+  <div ng-controller="api_ctlr">
+    {{ message }}
+    <h1 style="color:red" ng-repeat="error in errors">{{error}}</h1>
+
+    <input type="text" ng-model="firstName" placeholder="Search by first name">
+    <table>
+    <tr>
+    <th ng-click="toggleOrder('first_name')">first_name</th>
+    <th ng-click="toggleOrder('last_name')">last_name</th>
+    <th ng-click="toggleOrder('email')">email</th>
+    </tr>
+        <tr ng-repeat="employee in employees | filter: {first_name: firstName | orderBy:OrderAttribute:isReverse }">
+          <td>{{ employee.first_name }}</td>
+          <td>{{ employee.last_name }}</td>
+          <td>{{ employee.email }}</td>
+        </tr>
+     </table>
+
+    <input type="text"  placeholder="first_name" ng-model="employee.first_name">
+    <input type="text"  placeholder="last_name"  ng-model="employee.last_name">
+    <input type="text"  placeholder="email"  ng-model="employee.email">
+    <button ng-click ="addEmployee(employee)">Add Person!</button>
+
+  </div>
+</div>
