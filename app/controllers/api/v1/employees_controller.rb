@@ -1,9 +1,5 @@
 class Api::V1::EmployeesController < ApplicationController
 
-  def show
-    @employee = Employee.find_by(id: params[:id])
-  end
-
   def index
       @employee = Employee.all
   end
@@ -20,6 +16,10 @@ class Api::V1::EmployeesController < ApplicationController
     else
       render json: {errors: employee.errors.full_messages}, status: 422
     end
+  end
+
+  def show
+    @employee = Employee.find_by(id: params[:id])
   end
 
   def update

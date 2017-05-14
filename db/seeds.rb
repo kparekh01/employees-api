@@ -14,11 +14,10 @@
     :zip => Faker::Address.zip_code,
     :employee_id => rand(1..100)
   )
+  Employee.create(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    birth_date: Faker::Date.birthday
+  )
 end
-
-users = User.all
-user  = users.first
-following = users[7..100]
-followers = users[8..150]
-following.each { |followed| user.follow(followed) }
-followers.each { |follower| follower.follow(user) }
