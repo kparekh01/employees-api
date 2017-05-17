@@ -5,10 +5,11 @@ class EmployeesController < ApplicationController
   end
 
   def index
-      @employees = Employee.where(user_id: current_user.id) 
+    @employees = Employee.where(user_id: current_user.id)
   end
 
   def new
+    @employees = Employee.find_by(id: current_user.id)
   end
 
   def create
